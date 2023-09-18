@@ -8,7 +8,7 @@ class CustomButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: KPimaryColor,
+        color: kPimaryColor,
         borderRadius: BorderRadius.circular(8),
       ),
       width: MediaQuery.of(context).size.width,
