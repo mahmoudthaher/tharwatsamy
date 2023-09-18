@@ -5,18 +5,18 @@ sealed class NotsState {}
 
 final class NotsInitial extends NotsState {}
 
-final class AddNotesInitial extends NotsState {}
+final class NotesInitial extends NotsState {}
 
-final class AddNotesLoading extends NotsState {}
+final class NotesLoading extends NotsState {}
 
-final class AddNotesSuccess extends NotsState {
+final class NotesSuccess extends NotsState {
   final List<NoteModel> noteModel;
 
-  AddNotesSuccess({required this.noteModel});
+  NotesSuccess({required this.noteModel});
 }
 
-final class AddNotesFailure extends NotsState {
+final class NotesFailure extends NotsState {
   final String errMessage;
 
-  AddNotesFailure({required this.errMessage});
+  NotesFailure({required this.errMessage});
 }
