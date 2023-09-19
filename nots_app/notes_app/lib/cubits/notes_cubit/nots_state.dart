@@ -1,6 +1,8 @@
 part of 'nots_cubit.dart';
 
 @immutable
-sealed class NotsState {}
+sealed class NotesState {}
 
-final class NotsInitial extends NotsState {}
+final class NotesInitial extends NotesState {}
+
+final class NotesSuccess extends NotesState {}
