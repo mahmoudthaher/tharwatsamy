@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/adapters.dart';
-import 'package:notes_app/blocs/notes_bloc/notes_bloc_bloc.dart';
+import 'package:notes_app/blocs/notes_bloc/notes_bloc.dart';
 import 'package:notes_app/constants.dart';
 import 'package:notes_app/models/note_model.dart';
 import 'package:notes_app/simple_bloc_observer.dart';
@@ -25,8 +25,8 @@ class NotesApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider<NotesBlocBloc>(
-          create: (context) => NotesBlocBloc(),
+        BlocProvider<NotesBloc>(
+          create: (context) => NotesBloc(),
         ),
       ],
       child: MaterialApp(

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
-import 'package:notes_app/blocs/add_notes_bloc/add_notes_bloc_bloc.dart';
+import 'package:notes_app/blocs/add_notes_bloc/add_notes_bloc.dart';
 import 'package:notes_app/models/note_model.dart';
 import 'package:notes_app/widgets/color_list_view.dart';
 import 'package:notes_app/widgets/custom_button.dart';
@@ -44,7 +44,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
           const SizedBox(height: 32),
           const ColorListView(),
           const SizedBox(height: 32),
-          BlocBuilder<AddNotesBlocBloc, AddNotesBlocState>(
+          BlocBuilder<AddNotesBloc, AddNotesState>(
             builder: (context, state) {
               return CustomButton(
                 isLoading: state is AddNotesBlocSuccess ? true : false,
@@ -71,7 +71,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
           subTitle: subTitle!,
           date: formattedCurrentDate,
           color: Colors.blue.value);
-      BlocProvider.of<AddNotesBlocBloc>(context).add(AddNote(note: noteModel));
+      BlocProvider.of<AddNotesBloc>(context).add(AddNote(note: noteModel));
     } else {
       autovalidateMode = AutovalidateMode.always;
       setState(() {});

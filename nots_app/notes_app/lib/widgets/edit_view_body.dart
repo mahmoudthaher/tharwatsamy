@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:notes_app/blocs/notes_bloc/notes_bloc_bloc.dart';
+import 'package:notes_app/blocs/notes_bloc/notes_bloc.dart';
 import 'package:notes_app/models/note_model.dart';
 import 'package:notes_app/widgets/custom_app_bar.dart';
 import 'package:notes_app/widgets/custom_text_field.dart';
@@ -31,7 +31,7 @@ class _EditNoteViewBodyState extends State<EditNoteViewBody> {
                 widget.note.title = title ?? widget.note.title;
                 widget.note.subTitle = content ?? widget.note.subTitle;
                 widget.note.save();
-                BlocProvider.of<NotesBlocBloc>(context).add(FetchAllNote());
+                BlocProvider.of<NotesBloc>(context).add(FetchAllNote());
                 Navigator.pop(context);
               },
             ),

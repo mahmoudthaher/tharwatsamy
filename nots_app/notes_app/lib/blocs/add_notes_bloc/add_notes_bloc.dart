@@ -5,13 +5,13 @@ import 'package:meta/meta.dart';
 import 'package:notes_app/constants.dart';
 import 'package:notes_app/models/note_model.dart';
 
-part 'add_notes_bloc_event.dart';
-part 'add_notes_bloc_state.dart';
+part 'add_notes_event.dart';
+part 'add_notes_state.dart';
 
-class AddNotesBlocBloc extends Bloc<AddNotesBlocEvent, AddNotesBlocState> {
+class AddNotesBloc extends Bloc<AddNotesEvent, AddNotesState> {
   Color color = Color.fromARGB(255, 38, 136, 210);
-  AddNotesBlocBloc() : super(AddNotesBlocInitial()) {
-    on<AddNotesBlocEvent>((event, emit) async {
+  AddNotesBloc() : super(AddNotesBlocInitial()) {
+    on<AddNotesEvent>((event, emit) async {
       if (event is AddNote) {
         emit(AddNotesBlocLoading());
         event.note.color = color.value;

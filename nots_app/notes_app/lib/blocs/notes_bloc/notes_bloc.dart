@@ -4,14 +4,14 @@ import 'package:meta/meta.dart';
 import 'package:notes_app/constants.dart';
 import 'package:notes_app/models/note_model.dart';
 
-part 'notes_bloc_event.dart';
-part 'notes_bloc_state.dart';
+part 'notes_event.dart';
+part 'notes_state.dart';
 
-class NotesBlocBloc extends Bloc<NotesBlocEvent, NotesBlocState> {
+class NotesBloc extends Bloc<NotesEvent, NotesState> {
   List<NoteModel>? notes;
 
-  NotesBlocBloc() : super(NotesBlocInitial()) {
-    on<NotesBlocEvent>((event, emit) {
+  NotesBloc() : super(NotesBlocInitial()) {
+    on<NotesEvent>((event, emit) {
       if (event is FetchAllNote) {
         var notesBox = Hive.box<NoteModel>(kNotesBox);
         List<NoteModel> notesAfterReverse = notesBox.values.toList();
