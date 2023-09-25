@@ -10,7 +10,7 @@ class BestSellerListView extends StatelessWidget {
       // shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
       padding: EdgeInsets.zero,
-      itemCount: 10,
+      itemCount: 1,
       itemBuilder: (context, index) {
         return const Padding(
           padding: EdgeInsets.symmetric(vertical: 10),
@@ -20,3 +20,10 @@ class BestSellerListView extends StatelessWidget {
     );
   }
 }
+// SliverList(
+//         delegate: SliverChildBuilderDelegate(childCount: 2, (context, index) {
+//       return const Padding(
+//         padding: EdgeInsets.symmetric(vertical: 10),
+//         child: BestSellerListViewItem(),
+//       );
+//     }));
