@@ -10,7 +10,7 @@ class BestSellerListView extends StatelessWidget {
       // shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
       padding: EdgeInsets.zero,
-      itemCount: 1,
+      itemCount: 10,
       itemBuilder: (context, index) {
         return const Padding(
           padding: EdgeInsets.symmetric(vertical: 10),
