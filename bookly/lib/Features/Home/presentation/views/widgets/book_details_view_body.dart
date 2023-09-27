@@ -18,12 +18,11 @@ class BookDetailsViewBody extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: 30),
               child: Column(
                 children: [
-                  SizedBox(height: 20),
                   CustomBookDetailAppBar(),
                   BookDetailsSection(),
                   Expanded(child: SizedBox(height: 50)),
-                  SizedBox(height: 40),
                   SmilerBooksSection(),
+                  SizedBox(height: 40),
                 ],
               ),
             ),

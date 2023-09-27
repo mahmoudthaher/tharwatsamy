@@ -3,19 +3,18 @@ import 'package:bookly/Features/Home/presentation/views/widgets/books_action.dar
 import 'package:bookly/Features/Home/presentation/views/widgets/custom_book_image.dart';
 import 'package:bookly/core/utils/style.dart';
 import 'package:flutter/material.dart';
-import 'package:sizer/sizer.dart';
 
 class BookDetailsSection extends StatelessWidget {
   const BookDetailsSection({super.key});
 
   @override
   Widget build(BuildContext context) {
-    // var width = MediaQuery.of(context).size.width;
+    var width = MediaQuery.of(context).size.width;
     return Column(
       children: [
         Padding(
           padding: EdgeInsets.symmetric(
-            horizontal: 11.h, //horizontal: width * .17
+            horizontal: width * .17, // horizontal: 11.h,
           ),
           child: const CustomBookImage(),
         ),
