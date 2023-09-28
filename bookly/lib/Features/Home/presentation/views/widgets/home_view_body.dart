@@ -33,11 +33,9 @@ class HomeViewBody extends StatelessWidget {
               ],
             ),
           ),
-          SliverFillRemaining(
-            child: Padding(
-              padding: kPaddingHomeView,
-              child: BestSellerListView(),
-            ),
+          SliverPadding(
+            padding: kPaddingHomeView,
+            sliver: BestSellerListView(),
           ),
         ],
       ),
