@@ -6,3 +6,5 @@ sealed class NewestBooksEvent extends Equatable {
   @override
   List<Object> get props => [];
 }
+
+final class FetchNewest extends NewestBooksEvent {}
