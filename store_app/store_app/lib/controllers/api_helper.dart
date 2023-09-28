@@ -19,17 +19,17 @@ class ApiHelper {
     Uri uriFunction = Uri.http(domain, path);
     var token = await getToken();
     var headers = {"Authorization": token}; //'Bearer $token'
-    http.Response resposne = await http.get(uriFunction, headers: headers);
-    return resposneFunction(resposne);
+    http.Response response = await http.get(uriFunction, headers: headers);
+    return responseFunction(response);
   }
 
   Future<dynamic> postRequest({required String path, required Map body}) async {
     Uri uriFunction = Uri.http(domain, path);
     var token = await getToken();
     var headers = {"Authorization": token};
-    http.Response resposne =
+    http.Response response =
         await http.post(uriFunction, body: body, headers: headers);
-    return resposneFunction(resposne);
+    return responseFunction(response);
   }
 
   Future<dynamic> putRequest({required String path, required Map body}) async {
@@ -42,29 +42,29 @@ class ApiHelper {
       });
     }
     ;
-    http.Response resposne =
+    http.Response response =
         await http.put(uriFunction, body: body, headers: headers);
-    return resposneFunction(resposne);
+    return responseFunction(response);
   }
 
   Future<dynamic> deleteRequest({required String path}) async {
     Uri uriFunction = Uri.http(domain, path);
     var token = await getToken();
     var headers = {"Authorization": token};
-    http.Response resposne = await http.delete(uriFunction, headers: headers);
-    return resposneFunction(resposne);
+    http.Response response = await http.delete(uriFunction, headers: headers);
+    return responseFunction(response);
   }
 
-  dynamic resposneFunction(http.Response resposne) {
-    switch (resposne.statusCode) {
+  dynamic responseFunction(http.Response response) {
+    switch (response.statusCode) {
       case 200:
       case 201:
-        dynamic jsonObject = jsonDecode(resposne.body);
+        dynamic jsonObject = jsonDecode(response.body);
         return jsonObject;
       case 400:
         throw "Bad Request";
       case 401:
-        throw "Unauthrizied";
+        throw "Unauthorized";
       case 402:
         throw "Payment Required";
       case 403:
