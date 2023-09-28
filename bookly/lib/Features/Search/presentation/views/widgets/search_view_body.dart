@@ -1,4 +1,3 @@
-import 'package:bookly/Features/Home/presentation/views/widgets/best_seller_list_view_item.dart';
 import 'package:bookly/Features/Search/presentation/views/widgets/custom_search_text_field.dart';
 import 'package:bookly/Features/Search/presentation/views/widgets/search_result_search_view.dart';
 import 'package:bookly/constants.dart';
