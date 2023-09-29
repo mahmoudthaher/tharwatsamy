@@ -16,7 +16,9 @@ class BookDetailsSection extends StatelessWidget {
           padding: EdgeInsets.symmetric(
             horizontal: width * .17, // horizontal: 11.h,
           ),
-          child: const CustomBookImage(),
+          child: const CustomBookImage(
+              imageUrl:
+                  'https://images.pexels.com/photos/18122232/pexels-photo-18122232/free-photo-of-deckchairs-at-beach-along-sea.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'),
         ),
         const SizedBox(height: 43),
         Text(
