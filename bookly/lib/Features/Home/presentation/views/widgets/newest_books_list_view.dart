@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:bookly/Features/Home/presentation/manger/newest_books_bloc/newest_books_bloc.dart';
 import 'package:bookly/Features/Home/presentation/views/widgets/newest_books_list_view_item.dart';
 import 'package:bookly/core/widget/custom_error_widget.dart';

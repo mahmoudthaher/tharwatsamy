@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:bookly/Features/Home/presentation/manger/featured_books_bloc/featured_books_bloc.dart';
 import 'package:bookly/Features/Home/presentation/views/widgets/custom_book_image.dart';
 import 'package:bookly/core/utils/app_router.dart';
