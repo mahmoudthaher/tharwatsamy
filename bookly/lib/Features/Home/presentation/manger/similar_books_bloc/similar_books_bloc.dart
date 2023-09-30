@@ -2,7 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:bookly/Features/Home/data/repos/home_repo.dart';
 import 'package:equatable/equatable.dart';
 
-import '../../../data/models/book_model/book_model.dart';
+import '../../../../../core/models/book_model/book_model.dart';
 
 part 'similar_books_event.dart';
 part 'similar_books_state.dart';
