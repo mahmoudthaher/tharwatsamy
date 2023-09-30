@@ -18,13 +18,14 @@ class SimilarBooksListView extends StatelessWidget {
             child: ListView.builder(
               physics: const BouncingScrollPhysics(),
               scrollDirection: Axis.horizontal,
-              itemCount: 10,
+              itemCount: state.books.length,
               itemBuilder: (context, index) {
-                return const Padding(
-                  padding: EdgeInsets.only(right: 5),
+                return Padding(
+                  padding: const EdgeInsets.only(right: 10),
                   child: CustomBookImage(
                       imageUrl:
-                          'https://images.pexels.com/photos/18122232/pexels-photo-18122232/free-photo-of-deckchairs-at-beach-along-sea.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'),
+                          state.books[index].volumeInfo.imageLinks?.thumbnail ??
+                              ''),
                 );
               },
             ),

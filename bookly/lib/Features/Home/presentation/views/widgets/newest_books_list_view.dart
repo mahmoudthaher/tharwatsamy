@@ -19,7 +19,6 @@ class NewestBooksListView extends StatelessWidget {
             delegate: SliverChildBuilderDelegate(
               childCount: state.books.length,
               (context, index) {
-                log(state.books.length.toString());
                 return Padding(
                   padding: const EdgeInsets.symmetric(vertical: 10),
                   child: BookListViewItem(books: state.books[index]),
