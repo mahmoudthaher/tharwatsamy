@@ -13,7 +13,7 @@ class NewestBooksBloc extends Bloc<NewestBooksEvent, NewestBooksState> {
     on<NewestBooksEvent>((event, emit) async {
       if (event is FetchNewest) {
         emit(NewestBooksLoading());
-        var result = await homeRepo.fetchNewsBooksBooks();
+        var result = await homeRepo.fetchNewsBooks();
         result.fold((failure) {
           emit(NewestBooksFailure(failure.errMessage));
         }, (books) {

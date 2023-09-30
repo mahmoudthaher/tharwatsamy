@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:bookly/Features/Home/presentation/manger/newest_books_bloc/newest_books_bloc.dart';
 import 'package:bookly/Features/Home/presentation/views/widgets/newest_books_list_view_item.dart';
 import 'package:bookly/core/widget/custom_error_widget.dart';
@@ -17,6 +19,7 @@ class NewestBooksListView extends StatelessWidget {
             delegate: SliverChildBuilderDelegate(
               childCount: state.books.length,
               (context, index) {
+                log(state.books.length.toString());
                 return Padding(
                   padding: const EdgeInsets.symmetric(vertical: 10),
                   child: BookListViewItem(books: state.books[index]),
