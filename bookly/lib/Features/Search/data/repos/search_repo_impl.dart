@@ -16,7 +16,8 @@ class SearchRepoImpl implements SearchRepo {
       {required String bookName}) async {
     try {
       var data = await apiService.get(
-          endPoint: 'volumes?q=intitle:$bookName&filter=free-ebooks');
+          endPoint:
+              'volumes?q=intitle:$bookName&filter=free-ebooks&maxResults=40');
       List<BookModel> books = [];
       for (var item in data['items']) {
         books.add(BookModel.fromJson(item));
@@ -26,7 +27,7 @@ class SearchRepoImpl implements SearchRepo {
       if (e is DioException) {
         return left(ServerFailures.fromDioExaction(e));
       }
-      return left(ServerFailures(e.toString()));
+      return left(ServerFailures('Not Found'));
     }
   }
 }
