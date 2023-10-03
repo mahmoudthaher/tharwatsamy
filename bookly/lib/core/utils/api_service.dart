@@ -9,4 +9,10 @@ class ApiService {
     var response = await _dio.get('$_baseUrl$endPoint');
     return response.data;
   }
+
+  Future<Map<String, dynamic>> searchBook(
+      {required String bookName, required String endPoint}) async {
+    var response = await _dio.get('$_baseUrl$endPoint');
+    return response.data;
+  }
 }

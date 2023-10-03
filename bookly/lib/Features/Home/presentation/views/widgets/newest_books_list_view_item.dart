@@ -40,7 +40,7 @@ class BookListViewItem extends StatelessWidget {
                   ),
                   const SizedBox(height: 3),
                   Text(
-                    books.volumeInfo.authors![0],
+                    books.volumeInfo.authors?[0] ?? 'Author unknown',
                     style: Styles.textStyle14,
                     overflow: TextOverflow.ellipsis,
                     maxLines: 1,
