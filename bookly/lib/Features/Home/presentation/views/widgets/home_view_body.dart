@@ -4,15 +4,20 @@ import 'package:bookly/Features/Home/presentation/views/widgets/feature_list_vie
 import 'package:bookly/constants.dart';
 import 'package:bookly/core/utils/style.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../../../../core/bloc/localization_bloc/localization_bloc.dart';
+import '../../../../../generated/l10n.dart';
+import '../../../../../main.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const SafeArea(
+    return SafeArea(
       child: CustomScrollView(
-        physics: BouncingScrollPhysics(),
+        physics: const BouncingScrollPhysics(),
         slivers: [
           SliverToBoxAdapter(
             child: Column(
@@ -20,20 +25,38 @@ class HomeViewBody extends StatelessWidget {
               children: [
                 Padding(
                   padding: kPaddingHomeView,
-                  child: CustomAppBar(),
+                  child: GestureDetector(
+                    onTap: () {
+                      BlocProvider.of<LocalizationBloc>(context)
+                          .add(const ChangeLanguageEvent(Locale('ar')));
+                    },
+                    child: const CustomAppBar(),
+                  ),
                 ),
-                SizedBox(height: 8),
-                FeatureBooks(),
-                SizedBox(height: 50),
-                Padding(
-                  padding: kPaddingHomeView,
-                  child: Text('Newest Books', style: Styles.textStyle18),
+                const SizedBox(height: 8),
+                const FeatureBooks(),
+                const SizedBox(height: 50),
+                Row(
+                  children: [
+                    Padding(
+                      padding: isArabic() ? kPaddingHomeView : kPaddingHomeView,
+                      child: Text(S.of(context).subTitle,
+                          style: Styles.textStyle18),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(
+                          left: isArabic() ? 16 : 0,
+                          right: isArabic() ? 0 : 16),
+                      child: const Text('Test'),
+                    ),
+                    const Text('Locale'),
+                  ],
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
               ],
             ),
           ),
-          SliverPadding(
+          const SliverPadding(
             padding: kPaddingHomeView,
             sliver: NewestBooksListView(),
           ),

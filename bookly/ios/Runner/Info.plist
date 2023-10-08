@@ -46,8 +46,14 @@
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
 	<key>LSApplicationQueriesSchemes</key>
-<array>
-  <string>https</string>
-</array>
+	<array>
+  		<string>https</string>
+	</array>
+	<key>CFBundleLocalizations</key>
+	<array>
+    	<string>en</string>
+    	<string>ar</string>
+    
+	</array>
 </dict>
 </plist>

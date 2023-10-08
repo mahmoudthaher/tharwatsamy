@@ -2,15 +2,19 @@ import 'package:bookly/Features/Home/data/repos/home_repo_impl.dart';
 import 'package:bookly/Features/Home/presentation/manger/featured_books_bloc/featured_books_bloc.dart';
 import 'package:bookly/Features/Home/presentation/manger/newest_books_bloc/newest_books_bloc.dart';
 import 'package:bookly/constants.dart';
+import 'package:bookly/core/bloc/localization_bloc/localization_bloc.dart';
 import 'package:bookly/core/utils/app_router.dart';
 import 'package:bookly/core/utils/service_location.dart';
+import 'package:bookly/generated/l10n.dart';
 import 'package:bookly/simple_bloc_observer.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sizer/sizer.dart';
+import 'package:intl/intl.dart';
 
 void main() {
   setupServiceLocator();
@@ -32,6 +36,9 @@ class BooklyApp extends StatelessWidget {
         return MultiBlocProvider(
           providers: [
             BlocProvider(
+              create: (context) => LocalizationBloc(),
+            ),
+            BlocProvider(
               create: (context) => FeaturedBooksBloc(
                 getIt.get<HomeRepoImpl>(),
               )..add(FetchFeatureBooks()),
@@ -42,20 +49,35 @@ class BooklyApp extends StatelessWidget {
               )..add(FetchNewest()),
             ),
           ],
-          child: MaterialApp.router(
-            locale: DevicePreview.locale(context),
-            builder: DevicePreview.appBuilder,
-            routerConfig: AppRoute.router,
-            debugShowCheckedModeBanner: false,
-            theme: ThemeData.dark().copyWith(
-              scaffoldBackgroundColor: kPrimaryColor,
-              textTheme: GoogleFonts.montserratTextTheme(
-                ThemeData.dark().textTheme,
-              ),
-            ),
+          child: BlocBuilder<LocalizationBloc, UpdateLanguage>(
+            builder: (context, state) {
+              return MaterialApp.router(
+                localizationsDelegates: const [
+                  S.delegate,
+                  GlobalMaterialLocalizations.delegate,
+                  GlobalWidgetsLocalizations.delegate,
+                  GlobalCupertinoLocalizations.delegate,
+                ],
+                supportedLocales: S.delegate.supportedLocales,
+                locale: state.currentLanguage,
+                builder: DevicePreview.appBuilder,
+                routerConfig: AppRoute.router,
+                debugShowCheckedModeBanner: false,
+                theme: ThemeData.dark().copyWith(
+                  scaffoldBackgroundColor: kPrimaryColor,
+                  textTheme: GoogleFonts.montserratTextTheme(
+                    ThemeData.dark().textTheme,
+                  ),
+                ),
+              );
+            },
           ),
         );
       },
     );
   }
+}
+
+bool isArabic() {
+  return Intl.getCurrentLocale() == 'ar';
 }
