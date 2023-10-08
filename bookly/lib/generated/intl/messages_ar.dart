@@ -22,6 +22,10 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "customButtonFree": MessageLookupByLibrary.simpleMessage("مجانا"),
+        "customButtonNotAvailable":
+            MessageLookupByLibrary.simpleMessage("غير متاح"),
+        "customButtonPreview": MessageLookupByLibrary.simpleMessage("عرض"),
         "subTitle": MessageLookupByLibrary.simpleMessage("أحدث الكتب")
       };
 }

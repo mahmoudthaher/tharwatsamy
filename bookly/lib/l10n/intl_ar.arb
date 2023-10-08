@@ -1,3 +1,8 @@
 {
-    "subTitle":"أحدث الكتب"
+    "subTitle":"أحدث الكتب",
+    "customButtonFree":"مجانا",
+    "customButtonPreview":"عرض",
+    "customButtonNotAvailable":"غير متاح"
+
+
 }

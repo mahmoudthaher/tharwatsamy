@@ -4,11 +4,7 @@ import 'package:bookly/Features/Home/presentation/views/widgets/feature_list_vie
 import 'package:bookly/constants.dart';
 import 'package:bookly/core/utils/style.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../../../../../core/bloc/localization_bloc/localization_bloc.dart';
 import '../../../../../generated/l10n.dart';
-import '../../../../../main.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
@@ -23,34 +19,17 @@ class HomeViewBody extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Padding(
+                const Padding(
                   padding: kPaddingHomeView,
-                  child: GestureDetector(
-                    onTap: () {
-                      BlocProvider.of<LocalizationBloc>(context)
-                          .add(const ChangeLanguageEvent(Locale('ar')));
-                    },
-                    child: const CustomAppBar(),
-                  ),
+                  child: CustomAppBar(),
                 ),
                 const SizedBox(height: 8),
                 const FeatureBooks(),
                 const SizedBox(height: 50),
-                Row(
-                  children: [
-                    Padding(
-                      padding: isArabic() ? kPaddingHomeView : kPaddingHomeView,
-                      child: Text(S.of(context).subTitle,
-                          style: Styles.textStyle18),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(
-                          left: isArabic() ? 16 : 0,
-                          right: isArabic() ? 0 : 16),
-                      child: const Text('Test'),
-                    ),
-                    const Text('Locale'),
-                  ],
+                Padding(
+                  padding: kPaddingHomeView,
+                  child:
+                      Text(S.of(context).subTitle, style: Styles.textStyle18),
                 ),
                 const SizedBox(height: 20),
               ],

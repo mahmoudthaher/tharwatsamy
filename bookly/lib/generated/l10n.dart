@@ -59,6 +59,36 @@ class S {
       args: [],
     );
   }
+
+  /// `Free`
+  String get customButtonFree {
+    return Intl.message(
+      'Free',
+      name: 'customButtonFree',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Preview`
+  String get customButtonPreview {
+    return Intl.message(
+      'Preview',
+      name: 'customButtonPreview',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Not Available`
+  String get customButtonNotAvailable {
+    return Intl.message(
+      'Not Available',
+      name: 'customButtonNotAvailable',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

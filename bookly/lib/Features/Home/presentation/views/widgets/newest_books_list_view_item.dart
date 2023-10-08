@@ -18,7 +18,7 @@ class BookListViewItem extends StatelessWidget {
         GoRouter.of(context).push(AppRoute.kBookDetailsView, extra: books);
       },
       child: SizedBox(
-        height: 125,
+        height: 100,
         child: Row(
           children: [
             CustomBookImage(
@@ -30,6 +30,7 @@ class BookListViewItem extends StatelessWidget {
                 children: [
                   SizedBox(
                     width: MediaQuery.of(context).size.width * .5,
+                    height: 50,
                     child: Text(
                       books.volumeInfo.title!,
                       maxLines: 2,

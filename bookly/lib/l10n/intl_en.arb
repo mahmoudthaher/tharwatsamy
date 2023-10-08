@@ -1,3 +1,7 @@
 {
-    "subTitle":"Newest Books"
+    "subTitle":"Newest Books",
+    "customButtonFree":"Free",
+    "customButtonPreview":"Preview",
+    "customButtonNotAvailable":"Not Available"
+
 }
