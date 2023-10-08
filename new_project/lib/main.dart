@@ -18,5 +18,5 @@ void main() async {
   );
 
   Bloc.observer = SimpleBlocObserver();
-  runApp(const FirstProject());
+  runApp(const ChatApp());
 }

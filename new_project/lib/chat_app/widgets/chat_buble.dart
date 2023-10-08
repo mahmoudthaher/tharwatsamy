@@ -8,24 +8,34 @@ class ChatBuble extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Align(
-      alignment: Alignment.centerLeft,
-      child: Container(
-        margin: EdgeInsets.symmetric(vertical: 8),
-        padding: EdgeInsets.only(left: 16, top: 32, bottom: 32, right: 32),
-        decoration: const BoxDecoration(
-          color: KPrimaryColor,
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(35),
-            topRight: Radius.circular(35),
-            bottomRight: Radius.circular(35),
+    return Row(
+      children: [
+        CircleAvatar(
+          radius: 32,
+        ),
+        Align(
+          //اذا حطيت رو ما في حاجة الها
+          alignment: Alignment.centerLeft,
+          child: Container(
+            constraints: BoxConstraints(
+                maxWidth: MediaQuery.sizeOf(context).width - 32 * 2 - 20),
+            margin: EdgeInsets.symmetric(vertical: 8),
+            padding: EdgeInsets.only(left: 16, top: 32, bottom: 32, right: 32),
+            decoration: const BoxDecoration(
+              color: KPrimaryColor,
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(35),
+                topRight: Radius.circular(35),
+                bottomRight: Radius.circular(35),
+              ),
+            ),
+            child: Text(
+              messageModel.message,
+              style: TextStyle(color: Colors.white),
+            ),
           ),
         ),
-        child: Text(
-          messageModel.message,
-          style: TextStyle(color: Colors.white),
-        ),
-      ),
+      ],
     );
   }
 }
